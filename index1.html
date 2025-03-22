@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayHub - Endless Fun & Challenges</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1;
+            background-color: #1a1a1a;
+            color: black;
+        }
+
+        h1, h2 {
+            margin: 0;
+            color: white;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 6rem;
+            font-weight: bold;
+        }
+
+        .animation-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .game-animation {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: floatAnimation 7s infinite ease-in-out;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(50vh) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) scale(0.5);
+                opacity: 0.3;
+            }
+        }
+
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            gap: 30px;
+        }
+
+        .content-section h3 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+            color: #4A90E2;
+        }
+
+        .image-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 150%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .text-content {
+            flex: 2;
+            max-width: 800px;
+            margin-right: 120px;
+        }
+
+        .text-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 700;
+            
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .feature-card {
+            width: 380px;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #4A90E2;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: #4A90E2;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+            color: white;
+        }
+
+        h4 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+            color: #4A90E2;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .game-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 450px;
+            transition: transform 0.3s;
+        }
+        .game-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .game-card button {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-radius: 0 0 10px 10px;
+            background-color: #FF8C00;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .game-card button:hover {
+            background-color: #e67e00;
+        }
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+
+        .header1 {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .header1-buttons {
+    display: flex;
+  }
+
+  .header1-buttons button {
+    background-color: transparent;
+    border: none;
+    
+    cursor: pointer;
+    font-size: 56px;
+  }
+
+  .header-buttons {
+    display: flex;
+  }
+
+  .header-buttons button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    color: black;
+    margin-right: 50px;
+    border-radius: 14px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-left img {
+    height: 140px; /* Adjust logo height as needed */
+    margin-right: 10px;
+  }
+ 
+  .header-left h1{
+    font-size: small;
+    margin-top: 40px;
+    color: black;
+    font-size: 3rem;
+  }
+
+  .reviews-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 50px;
+            background-color: whitesmoke;
+        }
+        .review-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 350px;
+            margin: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .review-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+        }
+        .review-text {
+            font-size: 26px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .review-name {
+            font-weight: bold;
+            color: #555;
+        }
+        .single-review-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto;
+            border-radius: 15px;
+            padding: 20px;
+            width: 1990px;
+            margin: 20px;
+            background-color: whitesmoke;
+        }
+        
+        .single-review-container1 {
+            background-color: black;
+            padding: 20px;
+            width: 1990px;
+            height: 150px;
+            margin: 20px;
+            position: relative;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        /* Styles for the Playhub text on the left */
+        .playhub-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Styles for the copyright text at the bottom center */
+        .copyright-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+        }
+       
+        .header-left1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-left1 img {
+    height: 100px; 
+    margin-right: 10px;
+  }
+        
+
+  .wrapper {
+            display: flex;
+            width: 1200px;
+            justify-content: center;
+            margin-left: 380px;
+            height: 450px;
+            margin-top: 50px; 
+        }
+
+        .security-container {
+            width: 450px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 8px;
+            margin: 20px;
+            margin-left: 60px;
+        }
+
+        .register-container {
+            width: 650px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            margin-left: 150px; /* Increased margin for more gap */
+            gap: 40px;
+        }
+
+        .register-container h9, .security-container h9 {
+            margin-bottom: 20px;
+            color: black;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .register-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+
+        .security-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .security-list li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        h4 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .feature-description {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <div class="header-left">
+            <img src="images/logo.png" alt="Logo"> 
+            <h1>Playhub</h1>
+        </div>
+        <div></div> 
+        
+    </div>
+    
+   
+    
+    <header>
+        <h1>PlayHub -</h1>
+        <h2>Endless Fun & Challenges</h2>
+        <div class="animation-bg" id="animationContainer"></div>
+    </header>
+
+    <section class="content-section">
+        <h3>ABOUT PLAYHUB</h3>
+    </section>
+
+    <section class="content-section">
+        <div class="image-container">
+            <img src="images/wlc.jpg" alt="PlayHub Image">
+        </div>
+        <div class="text-content">
+            <p>PlayHub is your ultimate destination for immersive gaming experiences. Whether you are looking for thrilling challenges, endless fun, or engaging puzzles, PlayHub offers a wide range of games that cater to all ages and interests. Dive into a world of adventure and let your gaming spirit soar!</p>
+            <p>Our platform is designed to bring gamers together, providing a space where you can compete, collaborate, and connect with fellow gaming enthusiasts. With regular updates and new game releases, PlayHub ensures that you are always entertained and never out of options. Join us today and start your gaming journey!</p>
+            <p>Sure! Here's a short paragraph for you:
+
+                "PlayHub offers a diverse range of games, including engaging mathematical puzzles, vibrant color-matching challenges, and fun time-pass games to keep you entertained. Dive into exciting brain teasers, test your reflexes with fast-paced action games, and explore unique, interest-based games that cater to all age groups. With new games added regularly, PlayHub ensures endless fun and learning opportunities!"</p>
+        </div>
+    </section>
+
+
+
+    <h4>OUR FEATURES</h4>
+    <section>
+        
+       <div class="features-container">
+        <div class="feature-card">
+            <div class="feature-icon">🎮</div>
+            <h2 class="feature-title">Diverse Game Selection</h2>
+            <p class="feature-description">Enjoy a variety of games that cater to all preferences.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h2 class="feature-title">Game Categories</h2>
+            <p class="feature-description">
+                Organize games into categories like Mathematical, Color, Time-Pass, Brain Teasers, and Puzzles.
+            </p>
+        </div>
+        
+
+        <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h2 class="feature-title">Exciting Challenges</h2>
+            <p class="feature-description">Participate in thrilling challenges and win amazing rewards.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📴</div>
+            <h2 class="feature-title">Offline Mode</h2>
+            <p class="feature-description">Provide some games that can be played offline.</p>
+        </div>
+    </div>
+    </section>
+
+    <h4>OUR GAMES</h4>
+    <section>
+        <div class="game-container">
+            <div class="game-card">
+                <img src="images/game1.png" alt="Medusa The Wild">
+                <button onclick="window.location.href='game1/index.html'">Math Game</button>
+            </div>
+            <div class="game-card">
+                <img src="images/game2.jpg" alt="Scale of Anubis">
+                <button onclick="window.location.href='game2/index.html'">Bubble Shooter</button>
+            </div>
+            <div class="game-card">
+                <img src="images/game3.png" alt="Mega Juicy">
+                <button onclick="window.location.href='game3/index.html'">Snake game</button>
+            </div>
+            <div class="game-card">
+                <img src="images/game4.png" alt="100 Bracelets">
+                <button onclick="window.location.href='game4/index.html'">Archery target</button>
+            </div>
+        </div>
+       
+    </section>
+      
+    <h4>Player Reviews</h4>
+
+    <section>
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="images/gay.png" class="review-image" alt="Reviewer 2">
+                <p class="review-text">An immersive and thrilling experience—gaming at its finest</p>
+                <p class="review-name">- Gayatri</p>
+            </div>
+            <div class="review-card">
+                <img src="images/giri.jpg" class="review-image" alt="Reviewer 1">
+                <p class="review-text">"An amazing gaming experience! Highly recommended."</p>
+                <p class="review-name">- Mahadevprasad DL</p>
+            </div>
+            <div class="review-card">
+                <img src="images/megha.jpg" class="review-image" alt="Reviewer 2">
+                <p class="review-text">"A perfect blend of fun and challenges. Love it!"</p>
+                <p class="review-name">- Meghana Goud B</p>
+            </div>
+            <div class="review-card">
+                <img src="images/hr.png" class="review-image" alt="Reviewer 3">
+                <p class="review-text">"The best platform for online games. Five stars!"</p>
+                <p class="review-name">- Hrithik</p>
+            </div>
+        </div>
+        <div class="single-review-container">
+            <div class="review-card">
+                <img src="images/suman.jpg" class="review-image" alt="Reviewer 4">
+                <p class="review-text">"Fun, engaging, and full of excitement. Great job!"</p>
+                <p class="review-name">- Suman</p>
+            </div>
+            <div class="review-card">
+                <img src="images/san.png" class="review-image" alt="Reviewer 4">
+                <p class="review-text">"Good UI designed web and offline gamee!"</p>
+                <p class="review-name">- Sandarsh</p>
+            </div>
+            <div class="review-card">
+                <img src="images/swa.png" class="review-image" alt="Reviewer 4">
+                <p class="review-text">"nice timepass gamee!"</p>
+                <p class="review-name">- Swasthik</p>
+            </div>
+            
+        </div>
+    </section>
+      
+    <div class="single-review-container1">
+        <div class="header-left1">
+            <img src="images/footer.png" alt="Logo"> <h1>Playhub</h1>
+          </div>
+        <div class="playhub-text">Playhub</div>
+        <div class="copyright-text">&copy; 2025 Mahadevprasad DL. All rights reserved.</div>
+    </div>
+
+    <script>
+        function createGameAnimations() {
+            const animationContainer = document.getElementById('animationContainer');
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = 'game-animation';
+                element.style.left = `${Math.random() * 100}vw`;
+                element.style.animationDuration = `${Math.random() * 3 + 4}s`;
+                element.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                animationContainer.appendChild(element);
+            }
+        }
+        window.onload = createGameAnimations;
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+
+            let isValid = true;
+
+            // Username validation
+            if (username.value.length < 3) {
+                document.getElementById('usernameError').textContent = "Username must be at least 3 characters.";
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').textContent = "";
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailError').textContent = "Invalid email format.";
+                isValid = false;
+            } else {
+                document.getElementById('emailError').textContent = "";
+            }
+
+            // Password validation
+            if (password.value.length < 8) {
+                document.getElementById('passwordError').textContent = "Password must be at least 8 characters.";
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').textContent = "";
+            }
+
+            if (isValid) {
+                console.log("Username:", username.value);
+                console.log("Email:", email.value);
+                console.log("Password:", password.value);
+                alert("Registration successful! (Check console for data)");
+            }
+        });
+
+    </script>
+</body>
+</html>

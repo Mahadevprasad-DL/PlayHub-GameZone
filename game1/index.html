@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Math Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="./styling.css">
+    <style>
+        .animated-header {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 2.5rem;
+            z-index: 10;
+            position: relative;
+        }
+
+        .animation-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .game-animation {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: floatAnimation 2s infinite ease-in-out;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(50vh) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) scale(0.5);
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes move-background {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            top: 90px;
+            left: 30px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 11;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header class="animated-header">
+        <a href="/index1.html" class="back-button">Back</a>
+        <h1 class="header-text">Math Trick</h1>
+        <div class="animation-bg" id="animationContainer"></div>
+    </header>
+    <div class="animation-bg" id="bodyAnimationContainer"></div>
+
+    <div id="container">
+        <div id="score" class="right">
+            Score: <span id="scorevalue">0</span>
+        </div>
+        <div id="correct" class="message">
+            Correct
+        </div>
+        <div id="wrong" class="message">
+            Try Again
+        </div>
+        <div id="question"></div>
+        <div id="instruction">
+            <h1>Click on the correct answer</h1>
+        </div>
+        <div id="choices">
+            <div class="box" id="box1">
+                <div class="answer" id="ans1"></div>
+            </div>
+            <div class="box" id="box2">
+                <div class="answer" id="ans2"></div>
+            </div>
+            <div class="box" id="box3">
+                <div class="answer" id="ans3"></div>
+            </div>
+            <div class="box" id="box4">
+                <div class="answer" id="ans4"></div>
+            </div>
+        </div>
+        <div id="startreset">
+            Start game
+        </div>
+        <div id="timeremaining">
+            <h2>Time remaining <span id="timeremainingvalue">60</span> sec</h2>
+        </div>
+        <div id="gameOver"></div>
+    </div>
+    <script src="./javascript.js"></script>
+    <script>
+        function createGameAnimations() {
+            const animationContainer = document.getElementById('animationContainer');
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = 'game-animation';
+                element.style.left = `${Math.random() * 100}vw`;
+                element.style.animationDuration = `${Math.random() * 3 + 4}s`;
+                element.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                animationContainer.appendChild(element);
+            }
+        }
+        window.onload = createGameAnimations;
+    </script>
+</body>
+</html>
